@@ -1,14 +1,15 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}/`
+  baseURL: `${process.env.REACT_APP_API_URL}/`,
+  responseType: "json"
 });
 
 const list = () => http.get('/')
 
-const search = (search) => http.get('/search', { params: { q:search }})
+const detail = (alpha3Code) => http.get(`/name/${alpha3Code}`)
 
-const detail = (id) => http.get(`/${id}`)
+const search = (search) => http.get('/search', { params: { q:search }})
 
 const region = (region) => http.get(`/${region}`)
 

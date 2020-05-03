@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Card = ({flag, name, population, region, capital, theme, alpha3Code}) => (
-  <Link to={`/country/${alpha3Code}`}>
+  <Link to={`/name/${alpha3Code}`}>
     <div className={`card h-100 ${theme === 'light' ? 'lightTheme' : 'darkTheme component'}`}>
       <img src={flag} className="card-img-top" alt={name}/>
       <div className="card-body">

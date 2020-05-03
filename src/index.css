@@ -36,7 +36,7 @@ code {
   color: hsl(0, 0%, 100%);
 }
 .lightTheme, .darkTheme, .darkTheme.component  {
-  transition: all 0.25s linear;
+  transition: all 0.15s linear;
 }
 
 /*NAVBAR ---------*/
