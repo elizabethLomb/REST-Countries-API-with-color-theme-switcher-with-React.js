@@ -6,23 +6,21 @@ import Home from './components/Home';
 import { Switch, Route } from 'react-router-dom';
 import Detail from './components/Detail';
 
-const App = () => {
+const App = (props) => {
   const [theme, setTheme] = useState('light')
   
   const toggleTheme = () => theme === 'light' ? setTheme('dark') : setTheme('light')
-  
+
   return (
     <div className={`${theme === 'light' ? 'lightTheme' : 'darkTheme'}`}>
       <MainNav theme={theme} toggleTheme={toggleTheme}/>
 
-      <Home theme={theme}/>
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/name/:name' component={Detail} {...props}/>
+      </Switch>
 
       <Footer />
-
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/name/:alpha3Code" component={Detail} />
-      </Switch>
     </div>
   );
 }

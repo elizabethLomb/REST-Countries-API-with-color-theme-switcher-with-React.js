@@ -7,7 +7,7 @@ const http = axios.create({
 
 const list = () => http.get('/')
 
-const detail = (alpha3Code) => http.get(`/name/${alpha3Code}`)
+const detail = (name) => http.get(`/name/${name}`)
 
 const search = (search) => http.get('/search', { params: { q:search }})
 
