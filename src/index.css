@@ -7,8 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
-  
+  font-size: 17px;
+  font-weight: 100;
 }
 
 code {
@@ -16,10 +16,20 @@ code {
     monospace;
 }
 
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
 /*---- general --*/
 .btn:focus {
   outline: 0;
   box-shadow: none;
+}
+
+.no-bullets {
+  list-style-type: none;
+  padding: 0;
 }
 
 /*THEME -----*/
@@ -49,4 +59,12 @@ code {
 .card {
   border: none;
   box-shadow: 1px 0px 5px 0px #0000001a;
+}
+
+/*COUNTRY DETAIL--- */
+.countryDetail li {
+  margin-bottom: 13px;
+}
+.countryDetail .flag {
+  max-width: 80%;
 }

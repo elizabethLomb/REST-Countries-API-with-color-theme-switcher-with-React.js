@@ -16,8 +16,6 @@ const MainContainer = ({theme}) => {
     return () => {}
   }, [])
 
-  
-
   return (
     <main className="container mt-5 pt-5">
       <div className="row row-cols-1 row-cols-md-3">

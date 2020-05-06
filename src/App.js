@@ -16,8 +16,8 @@ const App = (props) => {
       <MainNav theme={theme} toggleTheme={toggleTheme}/>
 
       <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route exact path='/name/:name' component={Detail} {...props}/>
+        <Route exact path='/' render={() => <Home theme={theme} /> } />
+        <Route exact path='/name/:alpha3Code' component={Detail} {...props}/>
       </Switch>
 
       <Footer />
