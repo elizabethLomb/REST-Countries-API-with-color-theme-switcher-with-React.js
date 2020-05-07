@@ -11,13 +11,16 @@ const Detail = (props) => {
     const fetchCountry = () => {
       CountriesService.detail(props.match.params.alpha3Code).then(response => {
         setCountry({ country: response.data })
-        setLoading(false)
       }).catch(() => { throw new Error("Bad response from server") })
     }
 
     fetchCountry()
     return () => {}
-  }, [])
+  }, [country])
+
+  useEffect(() => {
+    country && setLoading(false)
+  }, [country])
 
   return (
     <main className="container-fluid mt-5 pt-5 countryDetail">
@@ -26,7 +29,6 @@ const Detail = (props) => {
       }
      
       {Object.values(country).map((v, i) => {
-        console.log(v)
         return (
           <div className="d-flex align-items-center justify-content-between" key={i}>
             <div className="col-lg-5 col-md-5 col-12 text-right">
