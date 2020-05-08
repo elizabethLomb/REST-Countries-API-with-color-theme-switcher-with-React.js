@@ -2,33 +2,18 @@ import React, { useEffect, useState } from 'react'
 import CountriesService from '../services/CountriesService'
 import { Link } from 'react-router-dom'
 
-const Detail = (props) => {
-  const [country, setCountry] = useState([])
-  const [loading, setLoading] = useState(null)
+const Detail = (props, countries) => {
+  
 
-  useEffect(() => {
-    setLoading(true)
-    const fetchCountry = () => {
-      CountriesService.detail(props.match.params.alpha3Code).then(response => {
-        setCountry({ country: response.data })
-      }).catch(() => { throw new Error("Bad response from server") })
-    }
-
-    fetchCountry()
-    return () => {}
-  }, [country])
-
-  useEffect(() => {
-    country && setLoading(false)
-  }, [country])
+  console.log('props ---->', props)
 
   return (
     <main className="container-fluid mt-5 pt-5 countryDetail">
-      {loading &&
-        <p>Loading.....</p>
-      }
+      <div className="mb-5">
+        <Link to='/' className="btn btn-light">← Back</Link>
+      </div>
      
-      {Object.values(country).map((v, i) => {
+      {Object.values(countries).map((v, i) => {
         return (
           <div className="d-flex align-items-center justify-content-between" key={i}>
             <div className="col-lg-5 col-md-5 col-12 text-right">
@@ -83,20 +68,19 @@ const Detail = (props) => {
 
               <div className="d-flex align-items-center">
                 <span className="font-weight-bold mr-4">Border Countries</span>
-                {v[i].borders.map((b, i) => (
+                {/* {v[i].borders.map((name, i) => (
                   <Link
                     key={i}
                     className="btn btn-outline-secondary mr-4"
-                    to={`/name/${b}`}>
-                      {b}
+                    to={`/name/${name}`}>
+                      {name}
                   </Link>
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
         )
       })
-         
       }
       
     </main>
