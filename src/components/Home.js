@@ -1,5 +1,4 @@
-import React, { useState, useEffect }  from 'react';
-import CountriesService from '../services/CountriesService';
+import React from 'react';
 import Card from './UI/Card';
 
 const Home = ({ theme, countries }) => {
