@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Detail = (props) => {
 
   const country = Object.values(props.countries).map(c => {
-    return c.filter(el => el.name === props.match.params.name && c)
+    return c.filter(el => el.alpha3Code === props.match.params.alpha3Code && c)
   })
 
   // const countryBorder = Object.values(props.countries).map((key, i) => {
@@ -14,7 +14,6 @@ const Detail = (props) => {
   //     })
   //   })
   // })
-
 
   return (
     <main className="container-fluid mt-5 pt-5 countryDetail">
@@ -77,48 +76,23 @@ const Detail = (props) => {
 
               <div className="d-flex align-items-center">
                 <span className="font-weight-bold mr-4">Border Countries</span>
-                {c[i].borders.length ? (
-                  c[i].borders.map((border, i) => {
-                    return(
-                      <Link to="/" key={i}>
-                        {Object.keys(props.countries).map(c => {
-                          props.countries[c].filter(el => {
-                            if(el.alpha3Code === border) {
-                              console.log(el.name)
-                              return el.name
-                            }
-                          })
-                          // if(props.countries[c].alpha3Code === border)
-                          // console.log(props.countries[c])
-                          //   return props.countries[c].name
-                          
-                          //if(props.countries[c].alpha3Code === border)
-                            //return props.countries[c].name
-
-
-
-                          // return c.filter((el, i) => {
-                          //   c
-                          //   if(el.alpha3Code === b) return props.countries[el].name
-                          // }
-                          
-                        })
-                        }
-                      </Link>
-                    )
-                  })
-                  // Object.values(props.countries).map(c => {
-                  //   return c.filter(el => {
-                  //     c[i].borders.map((border, i) => {
-                  //       <Link to="/" key={i}>
-                  //       {el.alpha3Code === border && el.name}
-                  //       </Link>
-                  //     })
-                  //   })
-                  // })
-                ) : (
-                  <>No borders</>
-                )}
+                <ul className="d-inline-flex no-bullets">
+                  {c[i].borders.length ? (
+                    c[i].borders.map((border, i) => {
+                      return(
+                        <li key={i}>
+                          <Link className="btn" to={`/${border}`}>
+                            {Object.entries(props.countries).map(([key, value], j) =>
+                              value.map(v => v.alpha3Code === border && v.name)
+                            )}
+                          </Link>
+                        </li>
+                      )
+                    })
+                  ) : (
+                    <>No borders</>
+                  )}
+                </ul>
               </div>
             </div>
           </div>

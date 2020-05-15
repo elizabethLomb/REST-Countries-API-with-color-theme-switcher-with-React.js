@@ -47,7 +47,7 @@ const App = (props) => {
           }/>
 
         <Route
-          exact path='/name/:name'
+          exact path='/alpha/:alpha3Code'
           component={props => 
             <Detail countries={countries} {...props}/>
           }
