@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Detail = (props) => {
@@ -6,14 +6,6 @@ const Detail = (props) => {
   const country = Object.values(props.countries).map(c => {
     return c.filter(el => el.alpha3Code === props.match.params.alpha3Code && c)
   })
-
-  // const countryBorder = Object.values(props.countries).map((key, i) => {
-  //   return key.filter(el => {
-  //     return country.map((c, i) => {
-  //       if(c[i].borders === el.alpha3Code) return el.name
-  //     })
-  //   })
-  // })
 
   return (
     <main className="container-fluid mt-5 pt-5 countryDetail">
@@ -74,25 +66,27 @@ const Detail = (props) => {
                 </div>
               </div>
 
-              <div className="d-flex align-items-center">
-                <span className="font-weight-bold mr-4">Border Countries</span>
-                <ul className="d-inline-flex no-bullets">
+              <div className="border_container">
+                <span className="font-weight-bold mr-4 mb-3 d-block">Border Countries:</span>
+                <div className="d-inline-flex flex-wrap">
                   {c[i].borders.length ? (
                     c[i].borders.map((border, i) => {
                       return(
-                        <li key={i}>
-                          <Link className="btn" to={`/${border}`}>
+                        <span className="mb-0" key={i}>
+                          <Link
+                            className="btn btn-outline-dark mr-3 mb-3"
+                            to={`/alpha/${border}`}>
                             {Object.entries(props.countries).map(([key, value], j) =>
                               value.map(v => v.alpha3Code === border && v.name)
                             )}
                           </Link>
-                        </li>
+                        </span>
                       )
                     })
                   ) : (
                     <>No borders</>
                   )}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
