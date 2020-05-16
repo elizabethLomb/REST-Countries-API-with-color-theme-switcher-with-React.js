@@ -3,7 +3,7 @@ import './App.css';
 import MainNav from './components/misc/MainNav';
 import Footer from './components/misc/Footer';
 import Home from './components/Home';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Detail from './components/Detail';
 import CountriesService from './services/CountriesService';
 
@@ -14,6 +14,7 @@ const App = (props) => {
   const [countries, setCountries] = useState([])
   const [loading, setLoading] = useState(null)
 
+  //fetch data
   useEffect(() => {
     const fetchCountries = async () => {
       CountriesService.list().then(response => {
@@ -25,9 +26,13 @@ const App = (props) => {
     return () => {}
   }, [])
 
+  //loading
   useEffect(() => {
     countries && setLoading(false)
   }, [countries])
+
+
+
 
   return (
     <div className={`${theme === 'light' ? 'lightTheme' : 'darkTheme'}`}>
@@ -41,8 +46,10 @@ const App = (props) => {
         <Route
           exact path='/'
           render={() =>
-            <Home theme={theme}
-            countries={countries}
+            <Home
+              theme={theme}
+              countries={countries}
+              {...props}
             />
           }/>
 
@@ -52,6 +59,8 @@ const App = (props) => {
             <Detail countries={countries} {...props}/>
           }
         />
+
+        <Redirect to="/"/>
       </Switch>
 
       <Footer />

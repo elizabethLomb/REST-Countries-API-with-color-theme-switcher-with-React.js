@@ -11,7 +11,7 @@ const detail = (name) => http.get(`/name/${name}`)
 
 const search = (search) => http.get('/search', { params: { q:search }})
 
-const region = (region) => http.get(`/${region}`)
+const region = (region) => http.get(`/region/${region}`)
 
 export default {
   list,
