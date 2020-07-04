@@ -3,7 +3,7 @@ import './App.css';
 import MainNav from './components/misc/MainNav';
 import Footer from './components/misc/Footer';
 import Home from './components/Home';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Detail from './components/Detail';
 import CountriesService from './services/CountriesService';
 
@@ -59,8 +59,6 @@ const App = (props) => {
             <Detail countries={countries} {...props}/>
           }
         />
-
-        <Redirect to="/"/>
       </Switch>
 
       <Footer />
