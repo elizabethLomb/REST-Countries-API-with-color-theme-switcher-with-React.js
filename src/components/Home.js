@@ -26,9 +26,8 @@ const Home = ({ theme, countries }) => {
     );
     
     setSearchResults(selectResults)
-  }, [selectTerm, countries])
 
-  console.log(selectTerm)
+  }, [selectTerm, countries])
 
   return (
     <main className="container-fluid mt-5 pt-5">
@@ -50,7 +49,7 @@ const Home = ({ theme, countries }) => {
         </div>
         <div className="col-4">
           <select className="form-control" onChange={handleChange} name="regions">
-            <option defaultValue>All</option>
+            <option value=''>All</option>
             <option value='Africa'>Africa</option>
             <option value='Americas'>Americas</option>
             <option value='Asia'>Asia</option>
