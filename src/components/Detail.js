@@ -7,10 +7,17 @@ const Detail = (props) => {
     return c.filter(el => el.alpha3Code === props.match.params.alpha3Code && c)
   })
 
+  console.log(props)
+
   return (
     <main className="container-fluid mt-5 pt-5 countryDetail">
       <div className="mb-5">
-        <Link to='/' className="btn btn-light">← Back</Link>
+        <Link 
+          to='/'
+          className={`btn btn-light ${props.theme === 'dark' && 'btn-dark'}`}
+        >
+          ← Back
+        </Link>
       </div>
 
       {country.map((c, i) => {
@@ -74,7 +81,11 @@ const Detail = (props) => {
                       return(
                         <span className="mb-0" key={i}>
                           <Link
-                            className="btn btn-outline-dark mr-3 mb-3"
+                            className={
+                              `btn mr-3 mb-3 ${props.theme === 'light' 
+                              ? 'btn-outline-dark'
+                              : 'btn-outline-light' }`
+                            }
                             to={`/alpha/${border}`}>
                             {Object.entries(props.countries).map(([key, value], j) =>
                               value.map(v => v.alpha3Code === border && v.name)

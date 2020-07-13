@@ -33,13 +33,13 @@ const Home = ({ theme, countries }) => {
   return (
     <main className="container-fluid mt-5 pt-5">
 
-      <div className="d-flex justify-content-between mb-4">
-        <InputSearch handleChange={handleChange} searchTerm={searchTerm} />
-        <SelectSearch handleChange={handleChange} />
+      <div className="d-flex justify-content-between mb-4 no-gutters flex-row flex-xsm-column">
+        <InputSearch handleChange={handleChange} searchTerm={searchTerm} theme={theme}/>
+        <SelectSearch handleChange={handleChange} theme={theme} />
       </div>
 
       {countries ? (
-        <div className="row row-cols-1 row-cols-md-5">
+        <div className="row row-cols-1 row-cols-md-3">
           {searchResults.length ? (
             Object.values(searchResults).map(country => 
               country.map((c, i) => 
@@ -57,10 +57,10 @@ const Home = ({ theme, countries }) => {
           )}
         </div>
       ) : (
-        <div className="row row-cols-1 row-cols-md-5">
+        <div className="row">
           <p>Sorry!</p>
         </div>
-      )};
+      )}
     </main>
   )
 }

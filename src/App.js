@@ -29,10 +29,7 @@ const App = (props) => {
   //loading
   useEffect(() => {
     countries && setLoading(false)
-  }, [countries])
-
-
-
+  }, [countries, theme])
 
   return (
     <div className={`${theme === 'light' ? 'lightTheme' : 'darkTheme'}`}>
@@ -56,7 +53,7 @@ const App = (props) => {
         <Route
           exact path='/alpha/:alpha3Code'
           component={props => 
-            <Detail countries={countries} {...props}/>
+            <Detail countries={countries} {...props} theme={theme}/>
           }
         />
       </Switch>

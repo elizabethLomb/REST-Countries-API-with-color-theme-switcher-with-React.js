@@ -43,6 +43,7 @@ a:hover {
   padding: 0;
 }
 
+
 /*THEME -----*/
 .lightTheme {
   background: hsl(0, 0%, 98%);
@@ -78,4 +79,24 @@ a:hover {
 }
 .countryDetail .flag {
   max-width: 80%;
+}
+
+/*input */
+.darkInput, .darkInput:active, .darkInput:focus,
+.btn-dark {
+  background: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+  border: 0;
+  box-shadow: 1px 0px 5px 0px #0000001a;
+}
+
+/* RESPONSIVE ======== */
+@media (max-width: 425px) {
+  .flex-xsm-column {
+    flex-direction: column !important;
+  }
+
+  input {
+    margin-bottom: 20px;
+  }
 }
