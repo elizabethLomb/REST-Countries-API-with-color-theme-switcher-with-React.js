@@ -3,6 +3,14 @@ Integrate a the REST Countries API to pull country data and display it
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## PREVIEW
+
+![alt text](https://github.com/elizabethLomb/REST-Countries-API-with-color-theme-switcher-with-React.js/blob/master/public/assets/img/Desktop_dark.png?raw=true)
+![alt text](https://github.com/elizabethLomb/REST-Countries-API-with-color-theme-switcher-with-React.js/blob/master/public/assets/img/Desktop_light.png?raw=true)
+![alt text](https://github.com/elizabethLomb/REST-Countries-API-with-color-theme-switcher-with-React.js/blob/master/public/assets/img/Detail_dark.png?raw=true)
+![alt text](https://github.com/elizabethLomb/REST-Countries-API-with-color-theme-switcher-with-React.js/blob/master/public/assets/img/Detail_light.png?raw=true)
+
+
 ## Available Scripts
 
 In the project directory, you can run:

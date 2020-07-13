@@ -39,7 +39,7 @@ const Home = ({ theme, countries }) => {
       </div>
 
       {countries ? (
-        <div className="row row-cols-1 row-cols-md-3">
+        <div className="row row-cols-1 row-cols-md-4">
           {searchResults.length ? (
             Object.values(searchResults).map(country => 
               country.map((c, i) => 
